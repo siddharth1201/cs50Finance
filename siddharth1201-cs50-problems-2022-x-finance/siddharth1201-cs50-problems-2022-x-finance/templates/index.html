@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Shares</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    {% for table_data in table_data %}
+      <tr>
+        <td>{{ table_data["Symbol"] }}</td>
+        <td>{{ table_data["Name"] }}</td>
+        <td>{{ table_data["Share"] }}</td>
+        <td>{{ table_data["Price"] }}</td>
+        <td>{{ table_data["Total"] }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4"><b>Cash</td>
+        <td>{{ cash }}</td>
+      </tr>
+      <tr>
+        <td colspan="4"><b>TOTAL</b></td>
+        <td>{{ grand_total }}</td>
+      </tr>
+    </tfoot>
+
+
+  </table>
+    <form method="GET" action="/password">
+      <button type="submit">Change Password</button>
+    </form>
+{% endblock %}
